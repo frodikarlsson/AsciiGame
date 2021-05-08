@@ -1,4 +1,0 @@
-[debug] [asciirogue-test] Classpath dependencies List()
-[debug] [asciirogue-test] Dependencies from configurations List(asciirogue)
-[debug] Bloop wrote the configuration of project 'asciirogue-test' to '/home/easterex/scala/games/asciirogue/asciirogue/.bloop/asciirogue-test.json'
-[success] Generated .bloop/asciirogue-test.json

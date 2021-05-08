@@ -1,48 +1,0 @@
-
-·src/main/scala/KeyControl.scala*,
-asciirogue/KeyControl# €*
-KeyControl€*3
-!asciirogue/KeyControl#`<init>`(). €@*<init>€*3
-%asciirogue/KeyControl#`<init>`().(up) €*up€*7
-'asciirogue/KeyControl#`<init>`().(left) €*left€*7
-'asciirogue/KeyControl#`<init>`().(down) €*down€*9
-(asciirogue/KeyControl#`<init>`().(right) €*right€*'
-asciirogue/KeyControl#up. €*up€*+
-asciirogue/KeyControl#left. €*left€*+
-asciirogue/KeyControl#down. €*down€*-
-asciirogue/KeyControl#right. €*right€**
-asciirogue/KeyControl#copy().*copy€*,
-!asciirogue/KeyControl#copy().(up)*up€*0
-#asciirogue/KeyControl#copy().(left)*left€*0
-#asciirogue/KeyControl#copy().(down)*down€*2
-$asciirogue/KeyControl#copy().(right)*right€*>
-'asciirogue/KeyControl#copy$default$1().*copy$default$1€*>
-'asciirogue/KeyControl#copy$default$2().*copy$default$2€*>
-'asciirogue/KeyControl#copy$default$3().*copy$default$3€*>
-'asciirogue/KeyControl#copy$default$4().*copy$default$4€*&
-asciirogue/KeyControl#_1().*_1€*&
-asciirogue/KeyControl#_2().*_2€*&
-asciirogue/KeyControl#_3().*_3€*&
-asciirogue/KeyControl#_4().*_4€*+
-asciirogue/KeyControl.
- *
-KeyControl€*,
-asciirogue/KeyControl.apply().*apply€*-
-"asciirogue/KeyControl.apply().(up)*up€*1
-$asciirogue/KeyControl.apply().(left)*left€*1
-$asciirogue/KeyControl.apply().(down)*down€*3
-%asciirogue/KeyControl.apply().(right)*right€*0
- asciirogue/KeyControl.unapply().*unapply€*1
-%asciirogue/KeyControl.unapply().(x$1)*x$1€*2
-!asciirogue/KeyControl.toString().*toString€2
- asciirogue/2$
- asciirogue/KeyControl#2/
- !asciirogue/KeyControl#`<init>`().2"
-  scala/Predef.String#2"
-( .scala/Predef.String#2"
-6 <scala/Predef.String#2"
-E Kscala/Predef.String#2'
- asciirogue/KeyControl#up.2)
-" &asciirogue/KeyControl#left.2)
-0 4asciirogue/KeyControl#down.2*
-> Casciirogue/KeyControl#right.PZ 385EC4157B6FFD9115BF43DEEC95A52E

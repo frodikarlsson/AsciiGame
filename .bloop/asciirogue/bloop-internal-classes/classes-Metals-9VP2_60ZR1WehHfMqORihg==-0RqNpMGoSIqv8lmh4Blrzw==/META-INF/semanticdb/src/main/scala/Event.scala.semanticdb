@@ -1,25 +1,0 @@
-
-ûsrc/main/scala/Event.scala*#
-asciirogue/Event# ”€*Event€*.
-asciirogue/Event#`<init>`(). €@*<init>€*!
-asciirogue/Event.
- *Event€*/
-asciirogue/Event.NilEvent. €©*NilEvent€*=
-!asciirogue/Event.PlayerMoveEvent. €©*PlayerMoveEvent€*1
-asciirogue/Event.QuitEvent. €©*	QuitEvent€*,
-asciirogue/Event.$values. €*$values€*)
-asciirogue/Event.values().*values€*+
-asciirogue/Event.valueOf().*valueOf€*0
-"asciirogue/Event.valueOf().($name)*$name€*%
-asciirogue/Event.$new().*$new€*5
-#asciirogue/Event.$new().(_$ordinal)*	_$ordinal€*-
-asciirogue/Event.$new().($name)*$name€*3
-asciirogue/Event.fromOrdinal().*fromOrdinal€*8
-(asciirogue/Event.fromOrdinal().(ordinal)*ordinal€2
- asciirogue/2
- 
-asciirogue/Event#2*
- asciirogue/Event#`<init>`().2(
- asciirogue/Event.NilEvent.2/
-  !asciirogue/Event.PlayerMoveEvent.2)
-" +asciirogue/Event.QuitEvent.PZ F179F5BF2BDB284F89E401A5170A3E04
