@@ -12,8 +12,10 @@ class Map(tileSet: TileSet, map: Array[Array[String]]):
   def this(map: Array[Array[String]]) =
     this(new TileSet(Map.standardTiles), map)
   
+  def updated(x: Int, y: Int, obj: String) = map.updated(y, map(y).updated(x, obj))
+
   override def toString: String = 
-    val sb: StringBuilder = StringBuilder()
+    val sb: StringBuilder = new StringBuilder()
     map.foreach(y =>
         y.foreach(x =>
             sb.append(tileSet.getTile(x))
@@ -22,12 +24,14 @@ class Map(tileSet: TileSet, map: Array[Array[String]]):
           )
     sb.toString
 
+  def getMap = map
+    
   def getTile(key: String) = tileSet.getTile(key)
 
-  @inline def withOnMap(x: Int, y: Int, obj: String): Map =
+  def withOnMap(x: Int, y: Int, obj: String): Map =
     new Map(
       tileSet, 
-      map.updated(y, map(y).updated(x, obj))
+      updated(x, y, obj)
     )
 
 object Map:

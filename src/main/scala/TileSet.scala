@@ -1,6 +1,9 @@
 package asciirogue
 import scala.collection.mutable.HashMap
 class TileSet(tileSet: HashMap[String, String]):
+  
+  def getTileSet = tileSet
+
   def getTile(key: String): String = 
     val value = tileSet.get(key)
     value match

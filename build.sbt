@@ -26,7 +26,7 @@ version := "1.0"
 // You can define other libraries as dependencies in your build like this:
 
 libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "1.2.0-RC2"
-
+libraryDependencies += "org.scala-sbt.jline" % "jline" % "2.14.7-sbt-42b717d4418374417765c7651dca69b1b75d8b84"
 // Here, `libraryDependencies` is a set of dependencies, and by using `+=`,
 // we're adding the scala-parser-combinators dependency to the set of dependencies
 // that sbt will go and fetch when it starts up.
