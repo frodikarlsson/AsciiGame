@@ -9,8 +9,8 @@ import java.io.{BufferedWriter, OutputStreamWriter}
 class Game(dim: (Int, Int)):
   import Game.*
   private var quit = false
-  private val map = new Map(new TileSet(Map.standardTiles), Map.standardMap)
-  private var player = Player("player", map.getTile("player"))
+  private val map = new GameMap(new TileSet(GameMap.getTileMap(GameMap.standardTiles)), GameMap.standardMap)
+  private var player = Player("player", map.tileSet.tileSet("player").tile)
   private var gameObjects: Array[GameObject] = Array()
   private val reader = new ConsoleReader()
   private val keyPresses = new ArrayBlockingQueue[Either[Operation, String]](128)
@@ -43,12 +43,12 @@ class Game(dim: (Int, Int)):
           player.handleKey(key) match
             case QuitEvent => quit = true 
             case PlayerMoveEvent(dx: Int, dy: Int) => 
-              if !(screen.getMap(player.y + dy)(player.x + dx).equals("wall")) then   //implement some sort of type for this or smth
+              if !(screen.getMap(player.y + dy)(player.x + dx).tagMap("collidable")) then  
                 player = player.copy(x = player.x + dx, y = player.y + dy)
-                screen = map.withOnMap(player.x, player.y, player.tileName)
+                screen = map.withOnMap(player.x, player.y, map.tileSet.tileSet(player.tileName))
             case NilEvent => 
         }
-        for o <- gameObjects do screen = screen.withOnMap(o.x, o.y, o.tileName)
+        for o <- gameObjects do screen = screen.withOnMap(o.x, o.y, map.tileSet.tileSet(o.tileName))
       end while
       
       val screenString = screen.toString
@@ -59,9 +59,9 @@ class Game(dim: (Int, Int)):
       Thread.sleep(0l.max(maxWaitMillis - (System.currentTimeMillis - t0)))
 
     end while
+    println("has quit!\nGoodbye!\u001B[?25h")
     out.close
     //sets cursor visibility
-    println("has quit!\nGoodbye!\u001B[?25h")
     
 
 

@@ -1,10 +1,10 @@
 package asciirogue
-import scala.collection.mutable.HashMap
-class TileSet(tileSet: HashMap[String, String]):
+import scala.collection.immutable.Map
+class TileSet(val tileSet: Map[String, MapTile]):
   
   def getTileSet = tileSet
 
-  def getTile(key: String): String = 
+  def getTile(key: String): MapTile = 
     val value = tileSet.get(key)
     value match
       case Some(someChar) => someChar
