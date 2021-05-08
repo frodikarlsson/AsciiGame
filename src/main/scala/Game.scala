@@ -33,7 +33,8 @@ class Game(dim: (Int, Int)):
   private def run(): Unit = 
     var oldScreen = map
     val out = new BufferedWriter(new OutputStreamWriter(System.out))
-    out.write("\u001b[0;0H" + screen.toString)
+    //sets cursor visibility
+    out.write("\u001B[?25l\u001b[0;0H" + screen.toString)
     out.flush
     val t0 = System.currentTimeMillis
     while !quit do
@@ -59,7 +60,8 @@ class Game(dim: (Int, Int)):
 
     end while
     out.close
-    println("has quit!\nGoodbye!")
+    //sets cursor visibility
+    println("has quit!\nGoodbye!\u001B[?25h")
     
 
 

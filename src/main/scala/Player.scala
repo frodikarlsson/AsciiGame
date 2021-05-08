@@ -15,6 +15,6 @@ case class Player(
       case Right(keyControl.down) => PlayerMoveEvent(0, 1)
       case Right(keyControl.right) => PlayerMoveEvent(1, 0)
       case Right(keyControl.left) => PlayerMoveEvent(-1, 0)
-      case Left(Operation.VI_EOF_MAYBE) => throw Exception("Program was interrupted by input")
+      case Left(Operation.VI_EOF_MAYBE) => QuitEvent
       case _ => NilEvent
 
