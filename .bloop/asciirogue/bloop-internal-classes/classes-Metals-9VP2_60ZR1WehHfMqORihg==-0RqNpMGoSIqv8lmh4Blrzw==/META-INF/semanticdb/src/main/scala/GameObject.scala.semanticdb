@@ -1,0 +1,27 @@
+
+³src/main/scala/GameObject.scala*)
+asciirogue/GameObject#*
+GameObject€*3
+!asciirogue/GameObject#`<init>`(). €@*<init>€*3
+asciirogue/GameObject#tileName. „*tileName€*+
+asciirogue/GameObject#tile. „*tile€*'
+asciirogue/GameObject#x(). „*x€*-
+asciirogue/GameObject#`x_=`(). €*x_=€*/
+#asciirogue/GameObject#`x_=`().(x$1)*x$1€*'
+asciirogue/GameObject#y(). „*y€*-
+asciirogue/GameObject#`y_=`(). €*y_=€*/
+#asciirogue/GameObject#`y_=`().(x$1)*x$1€2
+ asciirogue/2$
+ asciirogue/GameObject#2/
+ !asciirogue/GameObject#`<init>`().2-
+ asciirogue/GameObject#tileName.2"
+ scala/Predef.String#2)
+ 
+asciirogue/GameObject#tile.2"
+ scala/Predef.String#2(
+ asciirogue/GameObject#x().2
+	 
+scala/Int#2(
+ asciirogue/GameObject#y().2
+	 
+scala/Int#PZ 53DAFBEB1DD45C81CC6B572201EDD7C5
