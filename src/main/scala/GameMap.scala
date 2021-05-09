@@ -7,10 +7,10 @@ import scala.collection.immutable.Map
 class GameMap(val tileSet: TileSet, map: Array[Array[MapTile]]):
   import GameMap.*
   def this(tileSet: TileSet) = 
-    this(tileSet, GameMap.standardMap)
+    this(tileSet, GameMap.getTilesFromSymbolArray(LevelMaps.TestMap.levelMap, tileSet))
   
   def this(map: Array[Array[MapTile]]) =
-    this(new TileSet(GameMap.getTileMap(GameMap.standardTiles)),  map)
+    this(new TileSet(GameMap.getTileMap(LevelMaps.TestMap.tiles)),  map)
   
   def updated(x: Int, y: Int, obj: MapTile) = map.updated(y, map(y).updated(x, obj))
 
@@ -18,7 +18,7 @@ class GameMap(val tileSet: TileSet, map: Array[Array[MapTile]]):
     val sb: StringBuilder = new StringBuilder()
     map.foreach(y =>
         y.foreach(x =>
-            sb.append(x.tile)
+            sb.append(s"${x.color}${x.tile}")
             )
           sb.append("\n")
           )
@@ -28,28 +28,17 @@ class GameMap(val tileSet: TileSet, map: Array[Array[MapTile]]):
     
   def getTile(key: String) = tileSet.getTile(key)
 
+
   def withOnMap(x: Int, y: Int, obj: MapTile): GameMap =
     new GameMap(
       tileSet, 
       updated(x, y, obj)
     )
-
 object GameMap:
-  val standardTiles: Vector[MapTile] = Vector(
-    MapTile("ground", s"${Colors.white}5", MapTile.tags(collidable = false)), 
-    MapTile("wall", s"${Colors.blue}#", MapTile.tags(collidable = true)),
-    MapTile("player", s"${Colors.red}O", MapTile.tags(collidable = true))
-  )
-  def getTileMap(tiles: Vector[MapTile] = standardTiles): Map[String, MapTile] = tiles.map(t => (t.tileName -> t)).toMap
-  val standardMap = 
-    Array(
-      Array.fill[MapTile](50)(getTileMap()("wall")),
-      getTileMap()("wall") +: Array.fill[MapTile](48)(getTileMap()("ground")) :+ getTileMap()("wall"),
-      getTileMap()("wall") +: Array.fill[MapTile](48)(getTileMap()("ground")) :+ getTileMap()("wall"),
-      getTileMap()("wall") +: Array.fill[MapTile](48)(getTileMap()("ground")) :+ getTileMap()("wall"),
-      getTileMap()("wall") +: Array.fill[MapTile](48)(getTileMap()("ground")) :+ getTileMap()("wall"),
-      getTileMap()("wall") +: Array.fill[MapTile](48)(getTileMap()("ground")) :+ getTileMap()("wall"),
-      getTileMap()("wall") +: Array.fill[MapTile](48)(getTileMap()("ground")) :+ getTileMap()("wall"),
-      Array.fill[MapTile](50)(getTileMap()("wall")),
-    )
+  
+  def getTileFromSymbol(key: String, tileSet: TileSet) = tileSet.getTileFromSymbol(key)
 
+  def getTilesFromSymbolArray(symArr: Array[Array[Char]], tileSet: TileSet): Array[Array[MapTile]] = 
+    symArr.map(a=> a.map(b=>getTileFromSymbol(b.toString, tileSet)))
+
+  def getTileMap(tiles: Vector[MapTile] = LevelMaps.TestMap.tiles): Map[String, MapTile] = tiles.map(t => (t.tileName -> t)).toMap

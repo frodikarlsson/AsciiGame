@@ -9,7 +9,14 @@ import java.io.{BufferedWriter, OutputStreamWriter}
 class Game(dim: (Int, Int)):
   import Game.*
   private var quit = false
-  private val map = new GameMap(new TileSet(GameMap.getTileMap(GameMap.standardTiles)), GameMap.standardMap)
+  private val map = 
+    new GameMap(
+      new TileSet(GameMap.getTileMap(LevelMaps.TestMap.tiles)), 
+      GameMap.getTilesFromSymbolArray(
+        LevelMaps.TestMap.levelMap, 
+        new TileSet(GameMap.getTileMap(LevelMaps.TestMap.tiles))
+      )
+    )
   private var player = Player("player", map.tileSet.tileSet("player").tile)
   private var gameObjects: Array[GameObject] = Array()
   private val reader = new ConsoleReader()
@@ -34,7 +41,7 @@ class Game(dim: (Int, Int)):
     var oldScreen = map
     val out = new BufferedWriter(new OutputStreamWriter(System.out))
     //sets cursor visibility
-    out.write("\u001B[?25l\u001b[0;0H" + screen.toString)
+    out.write("\u001B[?25l\u001b[0;0H" + screen.withOnMap(player.x, player.y, map.tileSet.tileSet(player.tileName)).toString)
     out.flush
     val t0 = System.currentTimeMillis
     while !quit do
