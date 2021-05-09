@@ -18,7 +18,7 @@ class GameMap(val tileSet: TileSet, map: Array[Array[MapTile]]):
     val sb: StringBuilder = new StringBuilder()
     map.foreach(y =>
         y.foreach(x =>
-            sb.append(s"${x.color}${x.tile}")
+            sb.append(s"${Colors.getAnsi(x.color.red_part, x.color.green_part, x.color.blue_part)}${x.tile}")
             )
           sb.append("\n")
           )

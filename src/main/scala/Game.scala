@@ -38,6 +38,7 @@ class Game(dim: (Int, Int)):
       
   }
   private def run(): Unit = 
+    var light = MapLight(player.x, player.y, map, 100)
     var oldScreen = map
     val out = new BufferedWriter(new OutputStreamWriter(System.out))
     //sets cursor visibility
@@ -52,7 +53,12 @@ class Game(dim: (Int, Int)):
             case PlayerMoveEvent(dx: Int, dy: Int) => 
               if !(screen.getMap(player.y + dy)(player.x + dx).tagMap("collidable")) then  
                 player = player.copy(x = player.x + dx, y = player.y + dy)
-                screen = map.withOnMap(player.x, player.y, map.tileSet.tileSet(player.tileName))
+                light = light.copy(x = player.x, y = player.y)
+                screen = 
+                  light
+                  .getLitMap
+                  .withOnMap(player.x, player.y, map.tileSet.tileSet(player.tileName))
+                
             case NilEvent => 
         }
         for o <- gameObjects do screen = screen.withOnMap(o.x, o.y, map.tileSet.tileSet(o.tileName))
